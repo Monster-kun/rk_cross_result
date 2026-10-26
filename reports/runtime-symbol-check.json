@@ -1,0 +1,156 @@
+{
+  "checked": 30,
+  "passed": true,
+  "libraries": [
+    {
+      "file": "lib/behavior_tree/generate_tree_nodes_xml",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/bt_navigator/btn_node",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libbehavior_tree.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libbt_navigator.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libcompute_path_to_pose_action_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libfind_turn_angle_by_path_action_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libfollow_path_action_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libfollow_path_cancel_action_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libfollow_point_action_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libgoal_handler_decorator_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libis_path_collision_condition_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libis_path_valid_condition_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libis_stuck_condition_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libnavigate_through_poses.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libnavigate_through_poses_action_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libpath_ahead_checker_decorator_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libpath_validation_checker_decorator_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libpipeline_sequence_control_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/librate_controller_decorator_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libreactive_navigation_sequence_control_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/librecovery_control_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/librepeat_sequence_control_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libround_robin_control_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libselect_planner_action_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libsequence_path_decorator_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libsingle_trigger_decorator_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libswitch_controller_action_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libupdate_global_goals_action_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libupdate_goal_action_node.so",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "file": "lib/libwait_action_node.so",
+      "passed": true,
+      "failures": []
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+# Preserve captured compiler output verbatim, including trailing spaces.
+reports/build.log -whitespace
