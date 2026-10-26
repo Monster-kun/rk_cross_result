@@ -1,5 +1,0 @@
-relocatable_metadata=PASS
-[closure] 检查 248 个产物，root=/opt/sysroot
-[closure] 闭包共解析 385 个库
-[closure] PASSED: 全部动态依赖均可在目标环境内解析
-[sysroot] 闭包检查: python3 docker/sysroot/lib/check_deploy_closure.py --root /opt/sysroot /home/ray/STUDY/lab/rk_code/source_code/rk3576

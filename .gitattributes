@@ -1,4 +1,0 @@
-# Preserve captured compiler output verbatim, including trailing spaces.
-reports/build.log -whitespace
-# Store deployment files byte-for-byte and keep generated file whitespace.
-rk3576/** -text -whitespace
