@@ -1,9 +1,0 @@
-<library path="chassis_control_hardware">
-  <class name="chassis_control_hardware/ChassisControlHardware"
-         type="chassis_control_hardware::ChassisControlHardware"
-         base_class_type="hardware_interface::SystemInterface">
-    <description>
-      The ROS2 Control minimal robot protocol. This is example for start porting the robot from ROS 1.
-    </description>
-  </class>
-</library>

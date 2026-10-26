@@ -1,7 +1,0 @@
-string request_id
-string task_id
-string session_id
-string manager_boot_id
-string lease_token
-uint64 control_epoch
-uint64 expected_state_revision

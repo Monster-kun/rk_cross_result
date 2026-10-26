@@ -1,8 +1,0 @@
-/lanelet2_map_loader:
-  ros__parameters:
-    lanelet2_map_projector_type: local # Options: MGRS, UTM, local
-    latitude: 35.9035558004148 # Latitude of map_origin, using in UTM
-    longitude: 139.9333997902239 # Longitude of map_origin, using in UTM
-
-    center_line_resolution: 5.0 # [m]
-    map_name: sim_street # see files in maps folder

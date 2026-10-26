@@ -1,1 +1,0 @@
-geographiclib;geometry_msgs;lanelet2_core;lanelet2_io;lanelet2_maps;lanelet2_projection;lanelet2_routing;lanelet2_traffic_rules;lanelet2_validation;pugixml-dev;range-v3;rclcpp;tf2;tf2_geometry_msgs;visualization_msgs;unique_identifier_msgs;planning_msgs;mapping_msgs;utils;ament_cmake_ros

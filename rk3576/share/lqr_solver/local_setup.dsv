@@ -1,3 +1,0 @@
-source;share/lqr_solver/environment/ament_prefix_path.sh
-source;share/lqr_solver/environment/library_path.sh
-source;share/lqr_solver/environment/path.sh

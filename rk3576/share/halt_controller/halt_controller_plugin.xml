@@ -1,7 +1,0 @@
-<library path="halt_controller">
-	<class name="halt_controller/HaltController" type="halt_controller::HaltController" base_class_type="controller_interface::ControllerInterface">
-		<description>
-			halt control
-		</description>
-	</class>
-</library>

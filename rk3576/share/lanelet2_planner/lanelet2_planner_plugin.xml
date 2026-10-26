@@ -1,8 +1,0 @@
-<library path="lanelet2_planner">
-    <class 
-        name="lanelet2_planner/Lanelet2Planner" 
-        type="lanelet2_planner::Lanelet2Planner" 
-        base_class_type="global_planner::GlobalPlanner">
-        <description>lanelet2 planner</description>
-    </class>
-</library>

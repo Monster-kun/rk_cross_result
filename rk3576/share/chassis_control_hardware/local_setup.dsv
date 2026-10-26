@@ -1,3 +1,0 @@
-source;share/chassis_control_hardware/environment/ament_prefix_path.sh
-source;share/chassis_control_hardware/environment/library_path.sh
-source;share/chassis_control_hardware/environment/path.sh

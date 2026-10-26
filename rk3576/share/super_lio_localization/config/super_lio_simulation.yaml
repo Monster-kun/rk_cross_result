@@ -1,5 +1,0 @@
-# Simulation also provides PointCloud2 on /scan, but uses scan_link.
-/super_lio_localization_node:
-  ros__parameters:
-    lio.ros.lidar_topic: "/scan"
-    scan_frame_id: "scan_link"

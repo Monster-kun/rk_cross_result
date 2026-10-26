@@ -1,5 +1,0 @@
-<library path="otl_planner">
-    <class type="otl_planner::OTLPlanner" base_class_type="local_planner::LocalPlanner">
-        <description>otl planner</description>
-    </class>
-</library>

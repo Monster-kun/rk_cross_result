@@ -1,1 +1,0 @@
-fmt;geometry_msgs;lanelet2_extension;lanelet2_core;lanelet2_io;lanelet2_maps;lanelet2_projection;lanelet2_routing;lanelet2_traffic_rules;lanelet2_validation;rclcpp;rclcpp_components;std_msgs;tf2_geometry_msgs;tf2_ros;visualization_msgs;yaml-cpp;ament_cmake_gmock;ament_lint_auto;ros_testing

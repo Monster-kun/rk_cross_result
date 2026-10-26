@@ -1,6 +1,0 @@
-/scan_convert_node:
-  ros__parameters:
-    lidar_type: "Velodyne" #Velodyne Livox Sim Livox2
-    lidar_topic_name: "/velodyne_points" # /livox/lidar, /velodyne_points
-    max_scaning_range: 150.0
-    min_scaning_range: 0.05

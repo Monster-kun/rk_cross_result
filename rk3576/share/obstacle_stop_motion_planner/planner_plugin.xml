@@ -1,6 +1,0 @@
-<library path="obstacle_stop_motion_planner">
-    <class type="obstacle_stop_motion_planner::ObstacleStopMotionPlanner" 
-            base_class_type="local_planner::LocalPlanner">
-        <description>obstacle stop motion planner</description>
-    </class>
-</library>

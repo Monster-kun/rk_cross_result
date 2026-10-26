@@ -1,5 +1,0 @@
-local_planner_server:
-  ros__parameters:
-    # The simulated lidar sees the ground around z=-0.19 and the chassis around
-    # z=-0.08. Exclude those returns from the obstacle cloud in lidar coordinates.
-    lidar_range: [-0.05, 3.0]

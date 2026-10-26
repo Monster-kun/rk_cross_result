@@ -1,5 +1,0 @@
-planning_msgs/LaneletPrimitive preferred_primitive
-planning_msgs/LaneletPrimitive[] primitives
-planning_msgs/LaneletPrimitive left_bound
-planning_msgs/LaneletPrimitive right_bound
-bool is_inverted

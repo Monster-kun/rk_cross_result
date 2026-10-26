@@ -1,5 +1,0 @@
-/collision_monitor:
-  ros__parameters:
-    lidar_topic: /localization/const_scan # /localization/const_scan /velodyne_points
-    xy_clearance: [0.4, 0.365]
-    z_clearance: [-0.3, 0.5]    

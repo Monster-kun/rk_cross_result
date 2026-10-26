@@ -1,4 +1,0 @@
-PLUGIN;lib/liblifecycle_manager_core.so
-lifecycle_manager::LifecycleManager;lib/liblifecycle_manager_core.so
-EXECUTABLE;lib/liblifecycle_manager_core.so
-lifecycle_manager;lib/liblifecycle_manager_core.so

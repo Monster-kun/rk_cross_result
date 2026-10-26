@@ -1,2 +1,0 @@
-
-string local_planner_id

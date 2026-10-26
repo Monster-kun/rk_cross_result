@@ -1,3 +1,0 @@
-source;share/classic_cluster/environment/ament_prefix_path.sh
-source;share/classic_cluster/environment/library_path.sh
-source;share/classic_cluster/environment/path.sh

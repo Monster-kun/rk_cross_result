@@ -1,9 +1,0 @@
-setup.py
-se2_grid_msgs/__init__.py
-se2_grid_msgs.egg-info/PKG-INFO
-se2_grid_msgs.egg-info/SOURCES.txt
-se2_grid_msgs.egg-info/dependency_links.txt
-se2_grid_msgs.egg-info/top_level.txt
-se2_grid_msgs/msg/__init__.py
-se2_grid_msgs/msg/_se2_grid.py
-se2_grid_msgs/msg/_se2_grid_info.py
