@@ -1,0 +1,39 @@
+name: jetsonrobot
+mass: 5
+can_dev: can0
+rxcan_dev: can1
+dbusUSB: ttyUSB0
+right_forward_pivot_joint_can_id: 0x104 #260
+left_forward_pivot_joint_can_id: 0x101 # 257 
+right_back_pivot_joint_can_id: 0x103 #259
+left_back_pivot_joint_can_id: 0x102  #258
+right_forward_drive_joint_can_id: 0x604
+left_forward_drive_joint_can_id: 0x601
+right_back_drive_joint_can_id: 0x602
+left_back_drive_joint_can_id: 0x603
+rx_right_forward_pivot_joint_can_id: 0x704
+rx_left_forward_pivot_joint_can_id: 0x701
+rx_right_back_pivot_joint_can_id: 0x703
+rx_left_back_pivot_joint_can_id: 0x702
+rx_right_forward_drive_joint_can_id: 0x584
+rx_left_forward_drive_joint_can_id: 0x581
+rx_right_back_drive_joint_can_id: 0x582
+rx_left_back_drive_joint_can_id: 0x583
+motor_position: 
+  right_forward: [0.3,-0.3]
+  left_forward: [0.3,0.3]
+  right_back: [-0.3,-0.3]
+  left_back: [-0.3,0.3]
+vehicle_length: 0.8
+wheel_radius: 0.1
+velocity_ratio: 1.0 # 0.1 for sim, 1.0 for real
+moment_inertia: 20.0
+mass: 50.0
+
+# attention: pivot_limit * PI
+pivot_limit:
+  right_forward: [-0.5,0.0,0.0,0.5]
+  left_forward: [-0.5,0.0,0.0,0.5]
+  right_back: [-0.5,0.0,0.0,0.5]
+  left_back: [-0.5,0.0,0.0,0.5]
+velocity_limit: 200 # RPM

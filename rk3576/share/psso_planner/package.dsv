@@ -1,0 +1,9 @@
+source;share/psso_planner/hook/cmake_prefix_path.ps1
+source;share/psso_planner/hook/cmake_prefix_path.dsv
+source;share/psso_planner/hook/cmake_prefix_path.sh
+source;share/psso_planner/hook/ld_library_path_lib.ps1
+source;share/psso_planner/hook/ld_library_path_lib.dsv
+source;share/psso_planner/hook/ld_library_path_lib.sh
+source;share/psso_planner/hook/pythonpath.ps1
+source;share/psso_planner/hook/pythonpath.dsv
+source;share/psso_planner/hook/pythonpath.sh

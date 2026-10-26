@@ -1,0 +1,8 @@
+
+# Changes whenever the underlying Action server is recreated.
+string instance_id
+bool active
+# Includes execution/BT cleanup after the goal has reached a terminal state.
+bool execution_running
+# Current and pending goals, captured under the same lock.
+web_navigation_msgs/NavigationExecution[] goals

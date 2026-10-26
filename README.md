@@ -4,27 +4,22 @@ ROS 2 导航工作区 `source_code` 的 RK3576 安装结果，目标为 **AArch6
 
 2026-10-26 构建：**82 个包全部成功，248 个 ELF 均为 AArch64**，安装路径及动态依赖闭包检查通过。
 
-## 下载和解压
+## 下载
 
-安装 `git`、`zstd` 和 `tar` 后执行：
+直接克隆最新产物：
 
 ```bash
-git clone git@github.com:Monster-kun/rk_cross_result.git
+git clone --depth 1 git@github.com:Monster-kun/rk_cross_result.git
 cd rk_cross_result
-./unpack.sh
 ```
 
-完整安装树位于 `dist/rk3576/`，包含可执行文件、共享库、消息接口、配置、地图、网页资源、头文件及 ROS 环境脚本。归档按 48 MiB 分卷，直接保存在 Git 中；解压脚本会先验证各分卷的 SHA-256，并保留文件权限与软链接。
+完整安装树直接位于 `rk3576/`，无需解压，包含可执行文件、共享库、消息接口、配置、地图、网页资源、头文件及 ROS 环境脚本。Git 保留可执行标记与软链接。
 
-也可指定解压目录：
-
-```bash
-./unpack.sh /absolute/path/to/output
-```
+`--depth 1` 只下载最新版本，避免下载历史版本中的压缩分卷。
 
 ## 板端使用
 
-将 `dist/rk3576/` 的内容部署到 RK3576 的 `/opt/ros_overlay/`，板端需已有兼容的 ROS 2 Humble、Livox 驱动及项目运行依赖，然后加载环境：
+将 `rk3576/` 的内容部署到 RK3576 的 `/opt/ros_overlay/`，板端需已有兼容的 ROS 2 Humble、Livox 驱动及项目运行依赖，然后加载环境：
 
 ```bash
 source /opt/ros/humble/setup.bash
@@ -45,4 +40,4 @@ Livox 路径按板端实际位置调整。随后按项目配置执行 `ros2 run`
 
 硬件配置跳过 7 个仿真或可视化包，部分源码模块原本未启用安装目标，具体范围见构建报告。本次使用含已有本地修改的源码工作区。
 
-本次产物完成交叉编译与静态兼容性检查，尚未执行本次版本的板端节点运行验证。归档保留的 `runtime-symbol-check.json` 为此前版本的板端符号检查记录，时间与范围以文件内容为准。
+本次产物完成交叉编译与静态兼容性检查，尚未执行本次版本的板端节点运行验证。保留的 `runtime-symbol-check.json` 为此前版本的板端符号检查记录，时间与范围以文件内容为准。

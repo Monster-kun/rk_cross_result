@@ -1,0 +1,7 @@
+<library path="spinning_controller">
+	<class name="spinning_controller/SpinningController" type="spinning_controller::SpinningController" base_class_type="controller_interface::ControllerInterface">
+		<description>
+			spinning control
+		</description>
+	</class>
+</library>

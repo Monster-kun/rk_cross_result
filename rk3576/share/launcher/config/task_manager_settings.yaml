@@ -1,0 +1,4 @@
+task_manager:
+  ros__parameters:
+    loop_goals: false
+    behavior_tree_file: "navigate_through_poses.xml"

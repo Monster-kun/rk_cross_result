@@ -1,0 +1,21 @@
+collision_monitor_params:
+  slowdown_ratio: {
+    type: double,
+    default_value: 0.5,
+    description: "slowdown ratio",
+  }
+  xy_clearance: {
+    type: double_array,
+    default_value: [0.4, 0.365],
+    description: "xy clearance, [length, half width]",
+  }
+  slow_down_threshold: {
+    type: double,
+    default_value: 0.2,
+    description: "slow down threshold",
+  }
+  z_clearance: {
+    type: double_array,
+    default_value: [-0.2, 0.5],
+    description: "height threshold",
+  }

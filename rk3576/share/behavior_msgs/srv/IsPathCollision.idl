@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from behavior_msgs/srv/IsPathCollision.srv
+// generated code does not contain a copyright notice
+
+
+module behavior_msgs {
+  module srv {
+    struct IsPathCollision_Request {
+      float check_distance;
+    };
+    struct IsPathCollision_Response {
+      boolean is_valid;
+    };
+  };
+};

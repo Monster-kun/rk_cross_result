@@ -1,0 +1,13 @@
+web_navigation_manager:
+  ros__parameters:
+    behavior_tree_file: "web_navigate_through_poses.xml"
+    map_topic: "/map/vector_map"
+    localization_topic: "/localization/msf_status"
+    navigation_action: "navigate_through_poses"
+    global_frame: "map"
+    control_lease_ttl_ms: 8000
+    localization_stale_ms: 1000
+    cancel_timeout_ms: 5000
+    stop_confirm_duration_ms: 500
+    stopped_linear_speed: 0.05
+    stopped_angular_speed: 0.05

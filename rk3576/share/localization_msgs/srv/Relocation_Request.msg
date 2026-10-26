@@ -1,0 +1,5 @@
+# Determine if the current position of robot is collision free or not
+
+sensor_msgs/PointCloud2 cloud
+string  map_name
+int64  relocation_method

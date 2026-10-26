@@ -1,0 +1,61 @@
+/relocalizer_node:
+  ros__parameters:
+    sc_params:
+      num_rings: 20
+      num_sectors: 60
+      max_radius: 80.0
+      lidar_height: 0.0
+      num_candidates: 10
+      scan_context_distance_thresh: 0.25
+      map_refinement_enable: true
+      max_refinement_candidates: 3
+      candidate_merge_distance: 2.0
+      candidate_merge_height: 1.0
+      candidate_merge_angle_deg: 20.0
+      ambiguity_score_margin: 0.03
+      floor_ambiguity_score_margin: 0.10
+      ambiguity_translation: 2.0
+    map_refinement_params:
+      max_query_range: 70.0
+      cache_grid_size: 5.0
+      cache_capacity: 4
+      ndt_max_iterations: 20
+      ndt_step_size: 0.2
+      icp_max_iterations: 20
+      icp_correspondence_distance: 1.0
+      max_translation_delta: 8.0
+      max_rotation_delta_deg: 30.0
+      correspondence_distance: 0.75
+      min_inlier_ratio: 0.65
+      max_inlier_rmse: 0.35
+      sector_count: 12
+      min_occupied_sectors: 4
+      min_points_per_sector: 3
+      min_sector_coverage: 0.6
+    btc_params:
+      is_high_fly: false
+      parallel_stl_enable: true
+      parallel_stl_min_size: 256
+      skip_near_num: -1
+      score_threshold: 0.15
+    ndt_params:
+      resolution: 1.0
+      step_size: 0.1
+      transformation_epsilon: 0.01
+      max_iterations: 40
+      num_threads: 4
+      neighborhood: 2
+      source_leaf_size: 0.5
+      target_leaf_size: 0.5
+      min_points: 50
+      max_fitness: 2.0
+    bbs3d_params:
+      min_rpy: [-0.02, -0.02, 0.0]
+      max_rpy: [0.02, 0.02, 6.28]
+      score_threshold_percentage: 0.9
+      tar_leaf_size: 0.1 # unused when loading a prebuilt BBS3D index
+      src_leaf_size: 2.0
+      min_scan_range: 0.0
+      max_scan_range: 100.0
+      timeout_msec: 0
+      num_threads: 4

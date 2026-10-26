@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<root>
+    <TreeNodesModel>
+        <!-- ################## action nodes ################## -->
+        <Action ID="FollowPath">
+            <input_port name="path">path to be followed</input_port>
+            <input_port name="keep_running">Wait for the next pass-through reference</input_port>
+            <input_port name="local_planner_id">Mapped name to the planner plugin type to use</input_port>
+        </Action>
+
+        <Action ID="FollowPoint">
+            <input_port name="goal_pose">point to be followed</input_port>
+            <input_port name="local_planner_id">Mapped name to the planner plugin type to use</input_port>
+        </Action>
+
+        <Action ID="CancelFollowPath">
+            <input_port name="server_name">Service name to cancel the follow path behavior</input_port>
+            <input_port name="server_timeout">Server timeout</input_port>
+        </Action>
+
+        <Action ID="UpdateGoal">
+            <input_port name="input_goal">input goal</input_port>
+            <output_port name="output_goal">updated goal</output_port>
+        </Action>
+
+        <Action ID="ComputePathToPose">
+            <input_port name="goal">Destination</input_port>
+            <input_port name="start">Optional fixed start</input_port>
+            <input_port name="use_start">Use the fixed start</input_port>
+            <input_port name="defer_publication">Return a private prefetched leg</input_port>
+            <input_port name="global_planner_id">Mapped name to the planner plugin type to use</input_port>
+            <input_port name="server_name">Server_name</input_port>
+            <input_port name="server_timeout">Server timeout</input_port>
+            <output_port name="path">path created by the ComputePathToPose node</output_port>
+        </Action>
+
+        <Action ID="NavigateThroughPoses">
+            <input_port name="goals">Destination</input_port>
+            <input_port name="use_loop">loop goals</input_port>
+            <input_port name="server_name">Server_name</input_port>
+            <input_port name="server_timeout">Server timeout</input_port>
+            <input_port name="behavior_tree">Behavior tree to run</input_port>
+        </Action>
+
+        <Action ID="SwitchController">
+            <input_port name="controller_id">controller name</input_port>
+        </Action>
+
+        <Action ID="FindTurnAngleByPath">
+            <input_port name="input_path">input path</input_port>
+            <output_port name="output_goal">output goal</output_port>
+        </Action>
+
+        <Action ID="UpdateGlobalGoals">
+            <input_port name="distance">Distance</input_port>
+            <output_port name="output_goal">Goal to plan</output_port>
+        </Action>
+
+        <Action ID="Wait">
+            <input_port name="wait_duration">wait duration</input_port>
+        </Action>
+
+        <Action ID="SelectPlanner">
+            <input_port name="server_timeout">Server timeout</input_port>
+            <input_port name="default_planner">default planner</input_port>
+            <input_port name="planner_selector">planner selector</input_port>
+            <output_port name="selected_planner">selected planner</output_port>
+        </Action>
+
+        <!-- ################## condition nodes ################## -->
+        <Condition ID="IsStuck">
+            <input_port name="stuck_threshold">stuck threshold</input_port>
+        </Condition>
+
+        <Condition ID="IsPathValid">
+            <input_port name="server_timeout"> Server timeout </input_port>
+        </Condition>
+
+        <Condition ID="IsPathCollision">
+            <input_port name="server_timeout"> Server timeout </input_port>
+        </Condition>
+
+        <!-- ################## control nodes ################## -->
+        <Control ID="PipelineSequence" />
+        <Control ID="ReactiveNavigationSequence" />
+        <Control ID="RepeatSequence">
+            <input_port name="continue_sequence">Repeat after a segment while more sequential goals remain</input_port>
+        </Control>
+        
+        <Control ID="RoundRobin" />
+
+        <Control ID="RecoveryControl">
+            <input_port name="number_of_retries">Number of retries</input_port>
+        </Control>
+        
+        <!-- ################## decorator nodes ################## -->
+        <Decorator ID="SequencePath">
+            <input_port name="reached_distance">Visit confirmation distance</input_port>
+            <input_port name="handover_distance">Maximum next-leg preview length</input_port>
+            <input_port name="turn_angle_threshold">Stop before handover at or above this turn angle</input_port>
+            <input_port name="stopped_linear_speed">Maximum linear speed accepted as stopped</input_port>
+            <input_port name="stopped_angular_speed">Maximum angular speed accepted as stopped</input_port>
+            <input_port name="stop_confirm_duration">Required time below both stop speed limits</input_port>
+            <input_port name="planned_path">Private child result</input_port>
+            <output_port name="plan_goal">Next single destination</output_port>
+            <output_port name="plan_start">Next leg start</output_port>
+            <output_port name="use_start">Plan from the fixed start</output_port>
+            <output_port name="keep_running">Keep the active follower alive</output_port>
+            <output_port name="continue_sequence">More goals remain after this path segment</output_port>
+            <output_port name="path">Current leg and short handover preview</output_port>
+        </Decorator>
+        <Decorator ID="GoalHandler">
+            <input_port name="distance">Distance</input_port>
+            <output_port name="output_goal">Goal to plan</output_port>
+        </Decorator>
+
+        <Decorator ID="PathAheadChecker">
+            <input_port name="path">global path</input_port>
+        </Decorator>
+
+        <Decorator ID="RateController">
+            <input_port name="hz">Rate</input_port>
+        </Decorator>   
+
+        <Decorator ID="SingleTrigger"/>  
+        
+        <Decorator ID="PathValidationChcker">
+            <input_port name="server_timeout">Server timeout</input_port>
+        </Decorator>
+        
+    </TreeNodesModel>
+</root>

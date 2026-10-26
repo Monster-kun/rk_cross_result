@@ -1,0 +1,54 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from behavior_msgs/action/FollowPath.action
+// generated code does not contain a copyright notice
+
+#include "planning_msgs/msg/GlobalPath.idl"
+#include "std_msgs/msg/Empty.idl"
+
+module behavior_msgs {
+  module action {
+    @verbatim (language="comment", text=
+      "goal")
+    struct FollowPath_Goal {
+      planning_msgs::msg::GlobalPath path;
+
+      string local_planner_id;
+
+      boolean plan_once;
+
+      @verbatim (language="comment", text=
+        "Keep a pass-through leg alive while the next reference is being prepared.")
+      boolean keep_running;
+
+      @verbatim (language="comment", text=
+        "\"distance\" or \"angle\" or \"all\"")
+      string progress_checking_mode;
+    };
+    module FollowPath_Result_Constants {
+      const uint16 NONE = 0;
+      const uint16 UNKNOWN = 100;
+      const uint16 INVALID_PLANNER = 101;
+      const uint16 INVALID_PATH = 102;
+      const uint16 PATIENCE_EXCEEDED = 103;
+      const uint16 FAILED_TO_MAKE_PROGRESS = 104;
+      const uint16 NO_VALID_PLAN = 105;
+    };
+    @verbatim (language="comment", text=
+      "Error codes" "\n"
+      "Note: The expected priority order of the errors should match the message order")
+    struct FollowPath_Result {
+      @verbatim (language="comment", text=
+        "result")
+      std_msgs::msg::Empty result;
+
+      uint16 error_code;
+
+      string error_msg;
+    };
+    @verbatim (language="comment", text=
+      "feedback")
+    struct FollowPath_Feedback {
+      float distance_to_goal;
+    };
+  };
+};

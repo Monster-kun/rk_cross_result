@@ -1,0 +1,7 @@
+<library path="pure_pursuit_controller">
+	<class name="pure_pursuit_controller/PurePursuitController" type="pure_pursuit_controller::PurePursuitController" base_class_type="controller_interface::ControllerInterface">
+	<description>
+		omini control
+	</description>
+	</class>
+</library>

@@ -1,0 +1,15 @@
+
+bool found
+string task_id
+string request_id
+string ros_goal_uuid
+string map_version
+string frame_id
+uint8 status
+float64 requested_x
+float64 requested_y
+geometry_msgs/Pose effective_endpoint
+string device_label
+string error_code
+string error_message
+int64 updated_at

@@ -1,0 +1,74 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 10 #Hz
+
+    pure_pursuit_controller:
+      type: pure_pursuit_controller/PurePursuitController
+    omini_chassis_controller:
+      type: omini_chassis_controller/OminiChassisController
+    spinning_controller:
+      type: spinning_controller/SpinningController
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    # dualackermann_controller:
+    #   type: dualackermann_controller/DualackermannController
+    halt_controller:
+      type: halt_controller/HaltController      
+    simple_controller:
+      type: simple_controller/SimpleController
+
+omini_chassis_controller:
+  ros__parameters:
+    motor_name: [right_forward, left_forward, right_back, left_back]
+    drive_command_type: velocity
+    angle_pid:
+      p: 2.5
+      i: 0.0
+      d: 0.3
+    velocity_limit: 5.0
+    control_mode: dual_ackermann
+    dual_ackermann:
+      limit_pivot: 30.0
+
+pure_pursuit_controller:
+  ros__parameters:
+    pivot_names:
+      [
+        right_forward_pivot_joint,
+        left_forward_pivot_joint,
+        right_back_pivot_joint,
+        left_back_pivot_joint,
+      ]
+    wheel_names:
+      [
+        right_forward_drive_joint,
+        left_forward_drive_joint,
+        right_back_drive_joint,
+        left_back_drive_joint,
+      ]
+    right_forward_position: [0.4, -0.4]
+    left_forward_position: [0.4, 0.4]
+    right_back_position: [-0.4, -0.4]
+    left_back_position: [-0.4, 0.4]
+    angle_pid: [1.0, 0.0, 1.0]
+    velocity_limit: 0.5
+    ahead_distance: 1.0
+    velocity_ratio: 1.0
+
+spinning_controller:
+  ros__parameters:
+    motor_name: [right_forward, left_forward, right_back, left_back]
+    drive_command_type: velocity
+    angular_velocity_limit: [10.0, 15.0]
+
+halt_controller:
+  ros__parameters:
+    motor_name: [right_forward,left_forward,right_back,left_back]
+    drive_command_type: velocity
+
+simple_controller:
+  ros__parameters:
+    motor_name: [right_forward, left_forward, right_back, left_back]
+    drive_command_type: velocity  
+    lookahead_distance: 1.2
+    kinematics: "dual_ackermann" # "dual_ackermann" or "omni"    

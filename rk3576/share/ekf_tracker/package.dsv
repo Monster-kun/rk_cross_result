@@ -1,0 +1,14 @@
+source;share/ekf_tracker/hook/cmake_prefix_path.ps1
+source;share/ekf_tracker/hook/cmake_prefix_path.dsv
+source;share/ekf_tracker/hook/cmake_prefix_path.sh
+source;share/ekf_tracker/hook/ld_library_path_lib.ps1
+source;share/ekf_tracker/hook/ld_library_path_lib.dsv
+source;share/ekf_tracker/hook/ld_library_path_lib.sh
+source;share/ekf_tracker/hook/pythonpath.ps1
+source;share/ekf_tracker/hook/pythonpath.dsv
+source;share/ekf_tracker/hook/pythonpath.sh
+source;share/ekf_tracker/local_setup.bash
+source;share/ekf_tracker/local_setup.dsv
+source;share/ekf_tracker/local_setup.ps1
+source;share/ekf_tracker/local_setup.sh
+source;share/ekf_tracker/local_setup.zsh

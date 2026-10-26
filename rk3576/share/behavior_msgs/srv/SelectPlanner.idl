@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from behavior_msgs/srv/SelectPlanner.srv
+// generated code does not contain a copyright notice
+
+
+module behavior_msgs {
+  module srv {
+    struct SelectPlanner_Request {
+      string planner_selector_id;
+    };
+    struct SelectPlanner_Response {
+      string local_planner_id;
+    };
+  };
+};

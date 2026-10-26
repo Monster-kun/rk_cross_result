@@ -1,0 +1,12 @@
+setup.py
+people_msgs/__init__.py
+people_msgs.egg-info/PKG-INFO
+people_msgs.egg-info/SOURCES.txt
+people_msgs.egg-info/dependency_links.txt
+people_msgs.egg-info/top_level.txt
+people_msgs/msg/__init__.py
+people_msgs/msg/_people.py
+people_msgs/msg/_person.py
+people_msgs/msg/_person_stamped.py
+people_msgs/msg/_position_measurement.py
+people_msgs/msg/_position_measurement_array.py

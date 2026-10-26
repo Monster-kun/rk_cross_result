@@ -1,0 +1,63 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from web_navigation_msgs/srv/SubmitGoal.srv
+// generated code does not contain a copyright notice
+
+#include "web_navigation_msgs/msg/SequenceWaypoint.idl"
+
+module web_navigation_msgs {
+  module srv {
+    module SubmitGoal_Request_Constants {
+      const uint8 SUBMIT = 0;
+      const uint8 REPLACE = 1;
+      const uint8 CONTINUE = 2;
+      const uint8 RETRY = 3;
+      const uint8 SKIP = 4;
+    };
+    struct SubmitGoal_Request {
+      uint8 operation;
+
+      string request_id;
+
+      string session_id;
+
+      string device_label;
+
+      string manager_boot_id;
+
+      string lease_token;
+
+      uint64 control_epoch;
+
+      string map_version;
+
+      string frame_id;
+
+      double x;
+
+      double y;
+
+      string selected_layer_id;
+
+      string expected_active_task_id;
+
+      uint64 expected_state_revision;
+
+      sequence<web_navigation_msgs::msg::SequenceWaypoint> sequence;
+    };
+    struct SubmitGoal_Response {
+      boolean accepted;
+
+      string code;
+
+      string message;
+
+      string request_id;
+
+      string task_id;
+
+      uint8 task_status;
+
+      uint64 state_revision;
+    };
+  };
+};

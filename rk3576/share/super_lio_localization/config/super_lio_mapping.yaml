@@ -1,0 +1,15 @@
+/super_lio_mapping_node:
+  ros__parameters:
+    project_mode: false
+    mapping_mode: true
+    map_frame_id: map
+    lio.sensor.lidar_type: 8
+    lio.map.save_map: true
+    lio.map.map_name: map.pcd
+    lio.map.if_filter: true
+    lio.map.ds_size: 0.1
+    lio.map.save_interval: 50
+    lio.relocation.update_map: false
+    bbs3d.min_resolution: 1.0
+    bbs3d.max_level: 6
+    bbs3d.expansion_rate: 2

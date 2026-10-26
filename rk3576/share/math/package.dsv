@@ -1,0 +1,14 @@
+source;share/math/hook/cmake_prefix_path.ps1
+source;share/math/hook/cmake_prefix_path.dsv
+source;share/math/hook/cmake_prefix_path.sh
+source;share/math/hook/ld_library_path_lib.ps1
+source;share/math/hook/ld_library_path_lib.dsv
+source;share/math/hook/ld_library_path_lib.sh
+source;share/math/hook/pythonpath.ps1
+source;share/math/hook/pythonpath.dsv
+source;share/math/hook/pythonpath.sh
+source;share/math/local_setup.bash
+source;share/math/local_setup.dsv
+source;share/math/local_setup.ps1
+source;share/math/local_setup.sh
+source;share/math/local_setup.zsh

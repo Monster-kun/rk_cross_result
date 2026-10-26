@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from perception_msgs/msg/DetectedObject.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+#include "geometry_msgs/msg/Vector3.idl"
+#include "std_msgs/msg/Header.idl"
+
+module perception_msgs {
+  module msg {
+    struct DetectedObject {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "centriod and orientation of the object")
+      geometry_msgs::msg::Pose pose;
+
+      @verbatim (language="comment", text=
+        "dimensions of the object")
+      geometry_msgs::msg::Vector3 dimensions;
+    };
+  };
+};

@@ -1,0 +1,4 @@
+PLUGIN;lib/libhdl_people_tracking_node.so
+hdl_people_tracking::HdlPeopleTracking;lib/libhdl_people_tracking_node.so
+EXECUTABLE;lib/libhdl_people_tracking_node.so
+hdl_people_tracking;lib/libhdl_people_tracking_node.so

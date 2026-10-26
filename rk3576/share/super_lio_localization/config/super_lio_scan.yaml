@@ -1,0 +1,11 @@
+# Standard external PointCloud2 input for the real vehicle.
+/super_lio_localization_node:
+  ros__parameters:
+    lio.ros.lidar_topic: "/scan"
+    # The external PointCloud2 producer publishes /scan directly in base_link.
+    scan_frame_id: "base_link"
+    # lidar_fusion rebases /scan.header.stamp to the host ROS clock for the
+    # real vehicle; point `time` remains relative to that scan header.
+    lio.ros.point_time_field: "time"
+    lio.ros.point_time_scale: 1.0
+    lio.ros.scan_timestamp_source: "header"

@@ -1,0 +1,121 @@
+otl_planner_parameters:
+    maximum_curvature: {
+        type: double,
+        default_value: 1.2,
+        read_only: true,
+        description: "Maximum absolute path curvature (1/metre) for candidates and optimized paths. 1.2 corresponds to a minimum turning radius of about 0.83 m; restart after changing.",
+        validation: {gt<>: [0.0]}
+    }
+    min_obstacle_height: {
+        type: double,
+        default_value: 0.2,
+        read_only: true,
+        description: "Minimum obstacle Z in the motion-compensated planning base_link frame (metres). Filters source points and clips downward inflation; restart after changing.",
+        validation: {bounds<>: [-0.3, 1.0]}
+    }
+    obstacle_inflation_distance: {
+        type: double,
+        default_value: 0.5,
+        read_only: true,
+        description: "Shared square obstacle inflation in X/Y (metres per side). Zero disables horizontal inflation. Sole collision margin, applied once and shared by centreline filtering and optimization without lateral offsets; restart the planner after changing it.",
+        validation: {gt_eq<>: [0.0]}
+    }
+    clearance_distance: {
+        type: double,
+        default_value: 0.30,
+        read_only: true,
+        description: "Soft clearance preference outside the already inflated XY cells, evaluated over the first 2 m. Does not change collision geometry.",
+        validation: {gt_eq<>: [0.0]}
+    }
+    clearance_weight: {
+        type: double,
+        default_value: 15.0,
+        read_only: true,
+        description: "Weight of the shared mean/peak squared normalized clearance deficit in candidate and optimizer-result selection. Zero disables the preference.",
+        validation: {gt_eq<>: [0.0]}
+    }
+    lidar_leaf_size: {
+        type: double,
+        default_value: 0.1,
+        description: "lidar downsample size"
+    }
+    lidar_range: {
+        type: double_array,
+        default_value: [-0.3, 3.0],
+        description: "lidar cutoff range"
+    }
+    lidar_offset: {
+        type: double_array,
+        default_value: [0.4, 0.0, 0.0],
+        description: "lidar offset, real [0.4, 0.0, 0.0], fake[0.31, 0.0, 0.29]"
+    }
+    plan_distance: {
+        type: double,
+        default_value: 6.0,
+        description: "opl planenr plan distance"
+    }
+    sdf_threshold: {
+        type: double,
+        default_value: 0.0,
+        description: "sdf threshold for obstacle exclusion"
+    }
+    intensity_threshold: {
+        type: double,
+        default_value: 1.0,
+        description: "intensity threshold of each path"
+    }
+    min_path_range: {
+        type: double,
+        default_value: 2.0,
+        description: "mininum path range"
+    }
+    x_offset: {
+        type: double,
+        default_value: 6.0,
+        description: "x offset of the plan grid"
+    }
+    y_offset: {
+        type: double,
+        default_value: 6.0,
+        description: "y offset of the plan grid"
+    }
+    voxel_size: {
+        type: double,
+        default_value: 0.05,
+        description: "voxel size"
+    }
+    map_size: {
+        type: double_array,
+        default_value: [15.0, 15.0, 1.0],
+        description: "occ map size 2d"
+    }
+    max_iteration: {
+        type: int,
+        default_value: 500,
+        description: "maximum iteration number"
+    }
+    weight_smooth: {
+        type: double,
+        default_value: 3000.0,
+        description: "smooth weight"
+    }
+    weight_ref: {
+        type: double,
+        default_value: 5.0,
+        description: "reference weight"
+    }
+    max_iter_distance: {
+        type: double,
+        default_value: 0.6,
+        description: "corridor expansion limit around the fixed initial path point; not an obstacle clearance"
+    }
+    maximum_velocity: {
+        type: double,
+        default_value: 1.5,
+        description: "maximum velocity"
+    }
+    maximum_acceleration: {
+        type: double,
+        default_value: 1.0,
+        description: "maximum acceleration"
+    }

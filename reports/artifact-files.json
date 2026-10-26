@@ -8,8 +8,8 @@
   {
     "path": "BUILD_REPORT.md",
     "size": 1499,
-    "mode": "0o664",
-    "sha256": "965fa032c1eadffa0c8eda9902d50cfcf12ac62666661439e3c53c2bedf72a58"
+    "mode": "0o644",
+    "sha256": "ce152b1cf029597d2238e3b2312244c8cda871067b2c5bad9a68939deccc1413"
   },
   {
     "path": "COLCON_IGNORE",
@@ -32,25 +32,25 @@
   {
     "path": "build-environment.json",
     "size": 1512,
-    "mode": "0o664",
+    "mode": "0o644",
     "sha256": "16a73ee8fa7592cc82346b5fc6487c8ece2d8091c442782adbcb08ff69650ad5"
   },
   {
     "path": "build-validation.json",
     "size": 1908,
-    "mode": "0o664",
+    "mode": "0o644",
     "sha256": "bca18b030f036d619ba32b6c18b4f1f7e56a7370939ecf1865d2b39abafcc34e"
   },
   {
     "path": "compatibility-report.txt",
     "size": 408,
-    "mode": "0o664",
+    "mode": "0o644",
     "sha256": "ae95df2b0df376d9be58bfbf3164c4dcd5dc5c4c29c9951198b4d32a579ce568"
   },
   {
     "path": "dependency-closure.txt",
     "size": 323,
-    "mode": "0o664",
+    "mode": "0o644",
     "sha256": "232b0850861b4c7b7e11607a7886314144c24889fe06c39bd6275561ee169a70"
   },
   {
@@ -12002,7 +12002,7 @@
   {
     "path": "runtime-symbol-check.json",
     "size": 3387,
-    "mode": "0o664",
+    "mode": "0o644",
     "sha256": "b3b49bd79978cd037fc7bddfedd933a8834626e485e020d062564fb40b0d573f"
   },
   {
@@ -12782,7 +12782,7 @@
   {
     "path": "share/ament_index/resource_index/packages/nav_web_gateway",
     "size": 1,
-    "mode": "0o664",
+    "mode": "0o644",
     "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
   },
   {
@@ -110924,7 +110924,7 @@
   {
     "path": "share/nav_web_gateway/package.xml",
     "size": 958,
-    "mode": "0o664",
+    "mode": "0o644",
     "sha256": "756ccdf936c47f769f646a0f5581416c9949e206dd17fc6f654780f934b589a4"
   },
   {
@@ -110936,37 +110936,37 @@
   {
     "path": "share/nav_web_gateway/static/assets/PlanarMap-BtPuoxOl.css",
     "size": 5349,
-    "mode": "0o664",
+    "mode": "0o644",
     "sha256": "67e64fbd199fb0405d0bafc19305b6164d976d25839fda0ed735f2c943d174e9"
   },
   {
     "path": "share/nav_web_gateway/static/assets/PlanarMap-plyGAgCR.js",
     "size": 277737,
-    "mode": "0o664",
+    "mode": "0o644",
     "sha256": "689a3668c88f04377e77f734ec9477cf4e224f55d1c0b3004d72dccb97dcf2ec"
   },
   {
     "path": "share/nav_web_gateway/static/assets/index-C-is_Bhv.css",
     "size": 18451,
-    "mode": "0o664",
+    "mode": "0o644",
     "sha256": "01382160bf2134ccfa1c24e03b278b592a0b7652c6b4f81ba22ee39c01dd106a"
   },
   {
     "path": "share/nav_web_gateway/static/assets/index-CMiLNsi0.js",
     "size": 728609,
-    "mode": "0o664",
+    "mode": "0o644",
     "sha256": "a4acdb8f59930a48939b97dce1800bf9d883ffbf0173728604ec4172ad7f2912"
   },
   {
     "path": "share/nav_web_gateway/static/assets/index-CmvsCDNd.js",
     "size": 728736,
-    "mode": "0o664",
+    "mode": "0o644",
     "sha256": "b8f1af5ce2679f7fbbe3286c9855f59772625dcc7807813e867ae1f09b0d6e36"
   },
   {
     "path": "share/nav_web_gateway/static/index.html",
     "size": 478,
-    "mode": "0o664",
+    "mode": "0o644",
     "sha256": "6ab8c6dacfd3a2337dab7cf8cfccf9abc1067d1c13cad0271bb7f52904e1290a"
   },
   {

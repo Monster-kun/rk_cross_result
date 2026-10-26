@@ -1,0 +1,47 @@
+<!--
+  Plan one destination per request. Short, forward handovers remain continuous;
+  large turns end the current segment, stop, and replan from the stopped pose.
+-->
+
+<root BTCPP_format="4" main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <Sequence>
+      <Fallback>
+        <RepeatSequence continue_sequence="{continue_sequence}">
+          <Sequence name="NavigateThroughPosesSegment">
+            <PipelineSequence name="NavigateThroughPoses">
+              <SequencePath reached_distance="0.5" handover_distance="1.5"
+                            turn_angle_threshold="1.5707963267948966"
+                            stopped_linear_speed="0.05" stopped_angular_speed="0.05"
+                            stop_confirm_duration="0.5" planned_path="{planned_leg}"
+                            plan_goal="{leg_goal}" plan_start="{leg_start}" use_start="{use_leg_start}"
+                            keep_running="{keep_following}" continue_sequence="{continue_sequence}"
+                            path="{path}">
+                <ComputePathToPose goal="{leg_goal}" start="{leg_start}" use_start="{use_leg_start}"
+                                   defer_publication="true" path="{planned_leg}" global_planner_id="Lanelet2Planner"/>
+              </SequencePath>
+              <ReactiveNavigationSequence name="MonitorAndFollowPath">
+                <PathAheadChecker path="{path}" turn_goal="{turn_goal}">
+                  <Sequence name="TurnAroundSequence">
+                    <CancelFollowPath/>
+                    <SwitchController controller_id="spinning_controller"/>
+                    <FollowPoint goal="{turn_goal}" local_planner_id="SpinningPlanner" plan_once="false" progress_checking_mode="angle"/>
+                  </Sequence>
+                </PathAheadChecker>
+                <Sequence name="LocalPlanning">
+                  <SwitchController controller_id="pure_pursuit_controller"/>
+                  <FollowPath path="{path}" keep_running="{keep_following}" local_planner_id="OTLPlanner" plan_once="false" progress_checking_mode="distance"/>
+                </Sequence>
+              </ReactiveNavigationSequence>
+            </PipelineSequence>
+            <SwitchController controller_id="halt_controller"/>
+          </Sequence>
+        </RepeatSequence>
+        <ForceFailure>
+          <SwitchController controller_id="halt_controller"/>
+        </ForceFailure>
+      </Fallback>
+      <SwitchController controller_id="halt_controller"/>
+    </Sequence>
+  </BehaviorTree>
+</root>

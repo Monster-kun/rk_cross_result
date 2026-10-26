@@ -1,0 +1,9 @@
+from web_navigation_msgs.srv._cancel_task import CancelTask  # noqa: F401
+from web_navigation_msgs.srv._control_lease import ControlLease  # noqa: F401
+from web_navigation_msgs.srv._get_navigation_execution import GetNavigationExecution  # noqa: F401
+from web_navigation_msgs.srv._get_request import GetRequest  # noqa: F401
+from web_navigation_msgs.srv._get_snapshot import GetSnapshot  # noqa: F401
+from web_navigation_msgs.srv._get_task import GetTask  # noqa: F401
+from web_navigation_msgs.srv._get_web_map import GetWebMap  # noqa: F401
+from web_navigation_msgs.srv._submit_goal import SubmitGoal  # noqa: F401
+from web_navigation_msgs.srv._validate_target import ValidateTarget  # noqa: F401

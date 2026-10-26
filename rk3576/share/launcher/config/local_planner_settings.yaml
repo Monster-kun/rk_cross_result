@@ -1,0 +1,39 @@
+local_planner_server:
+  ros__parameters:
+    local_planner_frequency: 10.0 #hz
+    stuck_threshold: 8.0 #s
+    lidar_topic: "/localization/const_scan" # /localization/const_scan /velodyne_points   
+    # OTL 共用膨胀距离：X/Y 每侧各扩展的米数，方形核；0 关闭水平膨胀。
+    # 前端筛选、后端优化和 inflated_grid 可视化共用；修改后重启规划器。
+    obstacle_inflation_distance: 0.4
+    # 运动补偿后，以规划时刻 base_link 为基准；源点和向下膨胀均裁掉 z < 0.2 m。
+    min_obstacle_height: 0.2
+    # 录包对比选用的曲率上限（1/m），对应最小转弯半径约 0.56 m。
+    maximum_curvature: 1.8
+    planner_selector_plugins:
+      ["StopOrAvoidPlannerSelector"]
+    local_planner_plugins:
+      # psso_planner is disabled by its CMakeLists.txt; only load built plugins.
+      ["OTLPlanner", "SpinningPlanner", "StraightLinePlanner","ObstacleStopMotionPlanner"]
+    StopOrAvoidPlannerSelector:
+      plugin: "local_planner_server::StopOrAvoidPlannerSelector"
+    OTLPlanner:
+      plugin: "otl_planner::OTLPlanner"
+      desire_velocity: 1.0 #m/s
+      lidar_offset: [0.4, 0.0, 0.0] # real [0.4, 0.0, 0.0], fake[0.31, 0.0, 0.29]
+      debug_on: true
+    SpinningPlanner:
+      plugin: "simple_action_planners::SpinningPlanner"
+      max_yaw_rate: 15.0 #deg/s
+    StraightLinePlanner:
+      plugin: "simple_action_planners::StraightLinePlanner"
+      desire_velocity: 0.3 #m/s
+    ObstacleStopMotionPlanner:
+      plugin: "obstacle_stop_motion_planner::ObstacleStopMotionPlanner"
+      plan_range: 6.0
+      sample_resolution: 2.0
+      maximum_acceleration: 1.0
+      maximum_velocity: 0.5
+      debug: false
+    # DoNothingPlanner:
+    #   plugin: "simple_action_planners::DoNothingPlanner"

@@ -1,0 +1,3 @@
+min_level_res 1
+max_level 6
+v_rate 2

@@ -1,0 +1,4 @@
+/points_map_loader_node:
+  ros__parameters:
+    points_map_name: "2floor"
+    points_map_leaf_size: 0.2

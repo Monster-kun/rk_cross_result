@@ -1,0 +1,14 @@
+source_code compatibility report
+generated=2026-10-26T00:30:03Z
+overlay=/home/ray/STUDY/lab/rk_code/source_code/rk3576
+target=Ubuntu 22.04 jammy / ROS 2 Humble / arm64
+cpu_baseline=armv8-a
+glibc_on_report_host=2.39
+elf_candidate_count=251
+elf_count=248
+non_elf_candidate_count=3
+non_expected_elf_count=0
+ament_package_count=73
+build_path_residual_file_count=0
+elf_architecture=PASS
+relocatable_metadata=PASS

@@ -1,0 +1,31 @@
+{
+  "generated_utc": "2026-10-26T00:30:06.557761+00:00",
+  "board_sysroot": {
+    "schema": 1,
+    "sha256": "113840cbd07b0e1e83a32f372fd79c12269ba2eeab4b7f985fa49cbf7aefb92f",
+    "rootfs": "/home/ray/STUDY/cross_compile/cross_compile/sysroots/rk3576/113840cbd07b0e1e83a32f372fd79c12269ba2eeab4b7f985fa49cbf7aefb92f/rootfs",
+    "manifest": "/home/ray/STUDY/cross_compile/cross_compile/sysroots/rk3576/113840cbd07b0e1e83a32f372fd79c12269ba2eeab4b7f985fa49cbf7aefb92f/manifest.json",
+    "image": "rk3576-board-sysroot:113840cbd07b0e1e83a32f372fd79c12269ba2eeab4b7f985fa49cbf7aefb92f",
+    "ready": true
+  },
+  "xbuild_image": "sha256:b2e762bb111bce296843e7955b83e8e7958d74aef4a83e024874c57b3bb9ea3c",
+  "xbuild_id": "sha256:b2e762bb111bce296843e7955b83e8e7958d74aef4a83e024874c57b3bb9ea3c",
+  "board": {
+    "arch": "aarch64",
+    "board_time_utc": "2026-09-11T06:12:37Z",
+    "gcc": "11",
+    "glibc": "2.35",
+    "hostname": "RK3576-Tronlong",
+    "kernel": "6.1.115-rt16",
+    "os": "Ubuntu 22.04.5 LTS"
+  },
+  "framework_sha256": "c3de41cb7d39c7751e027d0120e64af5f68e698cc7013fbc3fab3a85463c235f",
+  "labels": {
+    "org.cross_compile.host.base": "ros:humble-amd64",
+    "org.cross_compile.host.id": "sha256:2a7ca548c7f0f87bc6393ee161dea3283e1c6fa280916f8944b1afadde2d26ec",
+    "org.cross_compile.sysroot.sha256": "113840cbd07b0e1e83a32f372fd79c12269ba2eeab4b7f985fa49cbf7aefb92f",
+    "org.opencontainers.image.version": "22.04"
+  },
+  "cross_gcc_version": "11.4.0",
+  "board_execution_verified": false
+}

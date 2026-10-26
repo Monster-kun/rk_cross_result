@@ -1,0 +1,3 @@
+source;share/ort_map/environment/ament_prefix_path.sh
+source;share/ort_map/environment/library_path.sh
+source;share/ort_map/environment/path.sh

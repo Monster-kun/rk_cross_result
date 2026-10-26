@@ -1,0 +1,34 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from se2_grid_msgs/msg/SE2Grid.msg
+// generated code does not contain a copyright notice
+
+#include "se2_grid_msgs/msg/SE2GridInfo.idl"
+#include "std_msgs/msg/Float32MultiArray.idl"
+
+module se2_grid_msgs {
+  module msg {
+    struct SE2Grid {
+      se2_grid_msgs::msg::SE2GridInfo info;
+
+      @verbatim (language="comment", text=
+        "layer names.")
+      sequence<string> layers;
+
+      @verbatim (language="comment", text=
+        "if has SO(2) info.")
+      sequence<boolean> has_so2;
+
+      @verbatim (language="comment", text=
+        "Grid map data.")
+      sequence<std_msgs::msg::Float32MultiArray> data;
+
+      @verbatim (language="comment", text=
+        "Row start index (default 0).")
+      uint16 start_index_row;
+
+      @verbatim (language="comment", text=
+        "Column start index (default 0).")
+      uint16 start_index_col;
+    };
+  };
+};

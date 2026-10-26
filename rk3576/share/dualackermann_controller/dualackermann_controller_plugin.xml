@@ -1,0 +1,7 @@
+<library path="dualackermann_controller">
+	<class name="dualackermann_controller/DualackermannController" type="dualackermann_controller::DualackermannController" base_class_type="controller_interface::ControllerInterface">
+	<description>
+		Dualackermann control
+	</description>
+	</class>
+</library>

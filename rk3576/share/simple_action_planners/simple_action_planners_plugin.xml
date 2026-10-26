@@ -1,0 +1,17 @@
+<class_libraries>
+    <library path="spinning_planner">
+        <class type="simple_action_planners::SpinningPlanner" base_class_type="local_planner::LocalPlanner">
+            <description>spinning planner</description>
+        </class>
+    </library>
+    <library path="straight_line_planner">
+        <class type="simple_action_planners::StraightLinePlanner" base_class_type="local_planner::LocalPlanner">
+            <description>straight line planner</description>
+        </class>
+    </library>    
+    <library path="do_nothing_planner">
+        <class type="simple_action_planners::DoNothingPlanner" base_class_type="local_planner::LocalPlanner">
+            <description>do nothing planner</description>
+        </class>
+    </library>       
+</class_libraries>

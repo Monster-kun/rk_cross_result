@@ -1,0 +1,2 @@
+
+bool is_emergency_stop

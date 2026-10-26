@@ -1,0 +1,67 @@
+
+<!-- <root BTCPP_format="4">
+  <BehaviorTree ID="MainTree">
+    <PipelineSequence name="NavigateWithRecovery">
+      <GoalHandler distance="5.0" output_goal="{goal}">
+        <ComputePathToPose goal="{goal}" path="{path}" global_planner_id="Lanelet2Planner"/>
+      </GoalHandler>
+
+      <RecoveryControl number_of_retries="10">
+          
+        <ReactiveSequence name="LocalPlanning_ObstacleStop">
+          <SwitchController controller_id="pure_pursuit_controller"/>
+          <FollowPath path="{path}" local_planner_id="ObstacleStopMotionPlanner" plan_once="false" progress_checking_mode="distance"/>
+          <SwitchController controller_id="halt_controller"/>
+        </ReactiveSequence>
+        <RoundRobin>
+          <ReactiveSequence name="LocalPlanning_OTL">
+            <SwitchController controller_id="pure_pursuit_controller"/>
+            <FollowPath path="{path}" local_planner_id="OTLPlanner" plan_once="false" progress_checking_mode="distance"/>
+            <SwitchController controller_id="halt_controller"/>
+          </ReactiveSequence>
+        </RoundRobin>
+      </RecoveryControl>
+    </PipelineSequence>
+  </BehaviorTree>
+</root> -->
+<root BTCPP_format="4">
+  <BehaviorTree ID="MainTree">
+    <RecoveryControl number_of_retries="10">
+      <PipelineSequence name="NavigateWithRecovery">
+        <GoalHandler distance="5.0" output_goal="{goal}">
+          <ComputePathToPose goal="{goal}" path="{path}" global_planner_id="Lanelet2Planner"/>
+        </GoalHandler>
+        <RetryUntilSuccessful num_attempts="10">
+          <Fallback>
+            <!-- if: enemy visible -->
+            <Sequence>
+              <SwitchController controller_id="pure_pursuit_controller"/>
+              <FollowPath path="{path}" local_planner_id="ObstacleStopMotionPlanner" plan_once="false" progress_checking_mode="distance"/>
+              <SwitchController controller_id="halt_controller"/>
+            </Sequence>
+
+            <!-- else: patrol -->
+            <Sequence name="LocalPlanning_OTL">
+              <SwitchController controller_id="pure_pursuit_controller"/>
+              <FollowPath path="{path}" local_planner_id="OTLPlanner" plan_once="false" progress_checking_mode="distance"/>
+              <SwitchController controller_id="halt_controller"/>
+            </Sequence>
+          </Fallback>
+        </RetryUntilSuccessful>
+      </PipelineSequence>
+
+        
+        
+        
+      <RoundRobin>
+        <ReactiveSequence name="LocalPlanning_OTL">
+          <SwitchController controller_id="pure_pursuit_controller"/>
+          <FollowPath path="{path}" local_planner_id="OTLPlanner" plan_once="false" progress_checking_mode="distance"/>
+          <SwitchController controller_id="halt_controller"/>
+        </ReactiveSequence>
+      </RoundRobin>
+      
+    </RecoveryControl>
+
+  </BehaviorTree>
+</root>

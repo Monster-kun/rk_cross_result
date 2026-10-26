@@ -1,0 +1,19 @@
+#goal
+geometry_msgs/PoseStamped[] goals
+geometry_msgs/PoseStamped goal_pose
+string task_id
+string map_version
+string behavior_tree
+bool loop_goals
+
+---
+#result
+uint16 NONE=0
+
+uint16 error_code
+string error_msg
+---
+#feedback
+builtin_interfaces/Duration navigation_time
+int16 number_of_recoveries
+int16 number_of_goal_remaining

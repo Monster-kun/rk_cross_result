@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>se2_grid_core</name>
+  <version>0.0.0</version>
+  <description>Universal SE2 grid library to manage two-dimensional grid maps with multiple data layers.</description>
+
+  <maintainer email="xulon666@gmail.com">Long Xu</maintainer>
+  <author email="xulon666@gmail.com">Long Xu</author>
+  <license>BSD</license>
+
+  <url type="website">https://github.com/ZJU-FAST-Lab/uneven_mapping</url>
+  <url type="bugtracker">https://github.com/ZJU-FAST-Lab/uneven_mapping/issues</url>
+
+  <!-- ROS 2 build system -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Dependencies -->
+  <depend>eigen3_cmake_module</depend>
+  <depend>PCL</depend>
+
+  <exec_depend>Eigen3</exec_depend>
+
+  <!-- Export ament settings -->
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

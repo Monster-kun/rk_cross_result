@@ -1,0 +1,1 @@
+rclcpp;rclcpp_lifecycle;sensor_msgs;pcl_ros;nav_msgs;trajectory_data;decomp_util;visualization_msgs;people_msgs;geometry_msgs;std_msgs;tf2;tf2_ros;tf2_geometry_msgs;planning_basic_data;localization_msgs;ament_lint_auto;ament_lint_common

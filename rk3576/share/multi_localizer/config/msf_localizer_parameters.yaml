@@ -1,0 +1,101 @@
+msf_localizer_params:
+  main_params:
+    use_debug_mode:
+      { type: bool, default_value: false, description: "debug mode" }
+    lidar_topic_name:
+      {
+        type: string,
+        default_value: "/scan",
+        description: "Now fix the topic name is /scan",
+      }
+    imu_topic_name:
+      {
+        type: string,
+        default_value: "/imu/data",
+        description: "/imu/data /fake_imu/data",
+      }
+    relocation_map_name:
+      {
+        type: string,
+        default_value: "sim_street",
+        description: "for relocation",
+      }
+    use_undistorted:
+      {
+        type: bool,
+        default_value: true,
+        description: "lidar point cloud distortion removal",
+      }
+    use_odom: { type: bool, default_value: false, description: "use odom" }
+    wheel_velocity_ratio:
+      { type: double, default_value: 1, description: "sim 0.1, real 1" }
+    extrinsic_Tbl:
+      {
+        type: double_array,
+        default_value:
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+          ],
+        description: "lidar -> base_link",
+      }
+    motors_position:
+      {
+        type: double_array,
+        default_value: [0.3, 0.3, -0.3, 0.3, -0.3, -0.3, 0.3, -0.3],
+        description: "motors_position , left front, left back, right back, right front",
+      }
+  eskf_params:
+    imu_dt: { type: double, default_value: 0.01, description: "imu rate" }
+    gyro_var: { type: double, default_value: 0.001, description: "gyro_var 0.000001" }
+    acce_var: { type: double, default_value: 0.01, description: "acce_var 0.01" }
+    bias_gyro_var:
+      { type: double, default_value: 0.001, description: "bias_gyro_var 0.0000001" }
+    bias_acce_var:
+      { type: double, default_value: 0.001, description: "bias_acce_var 0.0001" }
+    update_bias_gyro:
+      { type: bool, default_value: true, description: "update_bias_gyro" }
+    update_bias_acce:
+      { type: bool, default_value: true, description: "update_bias_gyro" }
+    odom_vel_var:
+      { type: double, default_value: 0.5, description: "odom_vel_var" }
+    odom_ang_var:
+      { type: double, default_value: 0.3, description: "odom_ang_var" }
+    odom_span: { type: double, default_value: 0.1, description: "odom_span" }
+  init_imu_params:
+    imu_rate: { type: int, default_value: 100, description: "imu_rate" }
+    init_time_seconds:
+      { type: double, default_value: 1.0, description: "init_time_seconds" }
+    max_static_gyro_var:
+      { type: double, default_value: 0.5, description: "max_static_gyro_var" }
+    max_static_acce_var:
+      { type: double, default_value: 0.05, description: "max_static_acce_var" }
+    gravity_norm:
+      { type: double, default_value: 9.81, description: "gravity_norm" }
+  scan_registration_params:
+    registration_type:
+      {
+        type: string,
+        default_value: "FASTCUDAGICP",
+        description: " ICP, GICP, GICPOMP,FASTGICP, FASTVGICP, FASTCUDAGICP, NDT, NDTOMP",
+      }
+    map_voxel_size:
+      { type: double, default_value: 0.3, description: "map_voxel_size" }
+    scan_voxel_size:
+      { type: double, default_value: 0.2, description: "scan_voxel_size" }
+    resolution: { type: double, default_value: 1.0, description: "resolution" }
+    thread_nums: { type: int, default_value: 4, description: "thread_nums" }

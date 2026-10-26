@@ -1,0 +1,25 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from localization_msgs/srv/Relocation.srv
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PoseStamped.idl"
+#include "sensor_msgs/msg/PointCloud2.idl"
+
+module localization_msgs {
+  module srv {
+    @verbatim (language="comment", text=
+      "Determine if the current position of robot is collision free or not")
+    struct Relocation_Request {
+      sensor_msgs::msg::PointCloud2 cloud;
+
+      string map_name;
+
+      int64 relocation_method;
+    };
+    struct Relocation_Response {
+      geometry_msgs::msg::PoseStamped init_pose;
+
+      boolean success;
+    };
+  };
+};

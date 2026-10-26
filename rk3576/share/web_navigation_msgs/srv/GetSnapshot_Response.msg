@@ -1,0 +1,2 @@
+
+web_navigation_msgs/NavigationState state

@@ -1,0 +1,139 @@
+relocation_params:
+  sc_params:
+    max_radius: { type: double, default_value: 80.0, description: "max_radius" }
+    max_theta: { type: double, default_value: 360.0, description: "max_theta" }
+    num_rings: { type: int, default_value: 20, description: "num_rings" }
+    num_sectors: { type: int, default_value: 60, description: "num_sectors" }
+    indexing_interval:
+      { type: int, default_value: 1, description: "indexing_interval" }
+    min_key_frame_seq_distance:
+      {
+        type: int,
+        default_value: 100,
+        description: "min_key_frame_seq_distance",
+      }
+    num_candidates:
+      { type: int, default_value: 10, description: "num_candidates" }
+    fast_alignment_search_ratio:
+      {
+        type: double,
+        default_value: 0.1,
+        description: "fast_alignment_search_ratio",
+      }
+    scan_context_distance_thresh: {
+        type: double,
+        default_value: 0.25, #0.15
+        description: "scan_context_distance_thresh",
+      }
+    lidar_height:
+      { type: double, default_value: 0.0, description: "height offset used when building the SC database" }
+    map_refinement_enable:
+      { type: bool, default_value: true, description: "refine SC candidates against cached map submaps; false restores historical-frame NDT" }
+    max_refinement_candidates:
+      { type: int, default_value: 3, description: "maximum SC seeds geometrically refined per request, including failed representatives" }
+    candidate_merge_distance:
+      { type: double, default_value: 2.0, description: "translation distance in meters for merging seeds after a representative passes" }
+    candidate_merge_height:
+      { type: double, default_value: 1.0, description: "maximum height difference for merging seeds or verified hypotheses, meters" }
+    candidate_merge_angle_deg:
+      { type: double, default_value: 20.0, description: "rotation distance in degrees for merging pose hypotheses" }
+    ambiguity_score_margin:
+      { type: double, default_value: 0.03, description: "reject distinct verified locations whose geometric scores differ by at most this value" }
+    floor_ambiguity_score_margin:
+      { type: double, default_value: 0.10, description: "larger required geometric score separation for competing floor hypotheses" }
+    ambiguity_translation:
+      { type: double, default_value: 2.0, description: "distance distinguishing verified locations for ambiguity rejection, meters" }
+  map_refinement_params:
+    max_query_range:
+      { type: double, default_value: 70.0, description: "query range used by map refinement and overlap verification, meters" }
+    cache_grid_size:
+      { type: double, default_value: 5.0, description: "spacing of cached submap centers, meters" }
+    cache_capacity:
+      { type: int, default_value: 4, description: "maximum cached submaps including NDT distributions and verification trees" }
+    ndt_max_iterations:
+      { type: int, default_value: 20, description: "first NDT stage before ICP; capped seeds continue from ICP within the shared NDT iteration budget" }
+    ndt_step_size:
+      { type: double, default_value: 0.2, description: "map NDT line-search step before fine ICP; legacy SC/BTC retain ndt_params.step_size" }
+    icp_max_iterations:
+      { type: int, default_value: 20, description: "fine ICP iterations after coarse NDT; zero disables ICP" }
+    icp_correspondence_distance:
+      { type: double, default_value: 1.0, description: "maximum fine ICP correspondence distance, meters" }
+    max_translation_delta:
+      { type: double, default_value: 8.0, description: "maximum accepted translation correction; also expands submap coverage, meters" }
+    max_rotation_delta_deg:
+      { type: double, default_value: 30.0, description: "maximum accepted rotation correction from the retrieved pose, degrees" }
+    correspondence_distance:
+      { type: double, default_value: 0.75, description: "maximum Euclidean correspondence distance for overlap and RMSE, meters" }
+    min_inlier_ratio:
+      { type: double, default_value: 0.65, description: "minimum fraction of all prepared query points with a map correspondence" }
+    max_inlier_rmse:
+      { type: double, default_value: 0.35, description: "maximum RMS Euclidean inlier distance, meters" }
+    sector_count:
+      { type: int, default_value: 12, description: "azimuth bins for query-relative correspondence coverage" }
+    min_occupied_sectors:
+      { type: int, default_value: 4, description: "minimum occupied query bins for usable spatial support" }
+    min_points_per_sector:
+      { type: int, default_value: 3, description: "minimum prepared query points defining an occupied bin" }
+    min_sector_coverage:
+      { type: double, default_value: 0.6, description: "minimum fraction of occupied bins satisfying the inlier ratio" }
+  btc_params:
+    is_high_fly:
+      { type: bool, default_value: false, description: "use high flight BTC descriptor settings" }
+    parallel_stl_enable:
+      { type: bool, default_value: true, description: "enable parallel BTC descriptor matching" }
+    parallel_stl_min_size:
+      { type: int, default_value: 256, description: "minimum work size for parallel BTC matching" }
+    skip_near_num:
+      { type: int, default_value: -1, description: "disable temporal neighbor exclusion for offline query" }
+    score_threshold:
+      { type: double, default_value: 0.15, description: "minimum BTC geometric verification score" }
+  ndt_params:
+    resolution:
+      { type: double, default_value: 1.0, description: "NDT resolution in meters" }
+    step_size:
+      { type: double, default_value: 0.1, description: "NDT optimizer step size" }
+    transformation_epsilon:
+      { type: double, default_value: 0.01, description: "NDT convergence epsilon" }
+    max_iterations:
+      { type: int, default_value: 40, description: "NDT maximum iterations" }
+    num_threads:
+      { type: int, default_value: 4, description: "NDT OpenMP thread count" }
+    neighborhood:
+      { type: int, default_value: 2, description: "0 KDTREE, 1 DIRECT26, 2 DIRECT7, 3 DIRECT1" }
+    source_leaf_size:
+      { type: double, default_value: 0.5, description: "source voxel leaf size; zero disables downsampling" }
+    target_leaf_size:
+      { type: double, default_value: 0.5, description: "target voxel leaf size; zero disables downsampling" }
+    min_points:
+      { type: int, default_value: 50, description: "minimum source and target points for NDT" }
+    max_fitness:
+      { type: double, default_value: 2.0, description: "maximum NDT fitness for BTC and legacy SC; map SC uses overlap and RMSE instead" }
+  bbs3d_params:
+    min_rpy:
+      {
+        type: double_array,
+        default_value: [-0.02, -0.02, 0.0],
+        description: "min_rpy",
+      }
+    max_rpy:
+      {
+        type: double_array,
+        default_value: [0.02, 0.02, 6.28],
+        description: "max_rpy",
+      }
+    score_threshold_percentage:
+      {
+        type: double,
+        default_value: 0.9,
+        description: "score_threshold_percentage",
+      }
+    tar_leaf_size:
+      { type: double, default_value: 0.1, description: "tar_leaf_size" }
+    src_leaf_size:
+      { type: double, default_value: 2.0, description: "src_leaf_size" }
+    min_scan_range:
+      { type: double, default_value: 0.0, description: "min_scan_range" }
+    max_scan_range:
+      { type: double, default_value: 100.0, description: "max_scan_range" }
+    timeout_msec: { type: int, default_value: 0, description: "timeout_msec" }
+    num_threads: { type: int, default_value: 4, description: "num_threads" }

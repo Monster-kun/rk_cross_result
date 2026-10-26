@@ -1,0 +1,12 @@
+msg/Cluster.idl
+msg/Cluster.msg
+msg/ClusterArray.idl
+msg/ClusterArray.msg
+msg/DetectedObject.idl
+msg/DetectedObject.msg
+msg/DetectedObjectArray.idl
+msg/DetectedObjectArray.msg
+msg/Track.idl
+msg/Track.msg
+msg/TrackArray.idl
+msg/TrackArray.msg

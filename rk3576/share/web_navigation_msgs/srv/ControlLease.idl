@@ -1,0 +1,47 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from web_navigation_msgs/srv/ControlLease.srv
+// generated code does not contain a copyright notice
+
+
+module web_navigation_msgs {
+  module srv {
+    module ControlLease_Request_Constants {
+      const uint8 ACQUIRE = 0;
+      const uint8 RENEW = 1;
+      const uint8 RELEASE = 2;
+      const uint8 VALIDATE = 3;
+    };
+    struct ControlLease_Request {
+      uint8 operation;
+
+      string session_id;
+
+      string device_label;
+
+      string manager_boot_id;
+
+      string lease_token;
+
+      uint64 control_epoch;
+    };
+    struct ControlLease_Response {
+      boolean success;
+
+      string code;
+
+      string message;
+
+      string manager_boot_id;
+
+      string lease_token;
+
+      uint64 control_epoch;
+
+      uint32 lease_ttl_ms;
+
+      boolean control_held;
+
+      string owner_label;
+    };
+  };
+};

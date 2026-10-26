@@ -16,6 +16,6 @@
 
 硬件配置跳过 7 个包：fake_localization, ros2_livox_simulation, simple_world, system_rviz_plugins, velodyne_gazebo_plugins, velodyne_simulator, hap_description。部分源码包原本未启用安装目标，保持现有项目配置。Sophus 使用项目固定版本；随产物提供与 SDK 匹配的 BehaviorTree.CPP 和 BLAS 运行库。
 
-本次执行了编译、架构、安装路径、依赖闭包及归档完整性验证，未执行本次产物的板端节点运行验证。`runtime-symbol-check.json` 是之前产物的板端符号检查记录，保留用于追溯。
+本次执行了编译、架构、安装路径、依赖闭包及文件完整性验证，未执行本次产物的板端节点运行验证。`runtime-symbol-check.json` 是之前产物的板端符号检查记录，保留用于追溯。
 
-部署时将本目录内容放到板端 `/opt/ros_overlay/`，先加载 ROS 2 和板端 Livox 驱动工作区的 `local_setup.bash`，再加载本目录的 `local_setup.bash`。完整日志与解压说明见结果仓库根目录。
+部署时将本目录内容放到板端 `/opt/ros_overlay/`，先加载 ROS 2 和板端 Livox 驱动工作区的 `local_setup.bash`，再加载本目录的 `local_setup.bash`。完整日志与部署说明见结果仓库根目录。

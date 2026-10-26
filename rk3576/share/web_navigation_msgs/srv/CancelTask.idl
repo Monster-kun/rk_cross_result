@@ -1,0 +1,37 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from web_navigation_msgs/srv/CancelTask.srv
+// generated code does not contain a copyright notice
+
+
+module web_navigation_msgs {
+  module srv {
+    struct CancelTask_Request {
+      string request_id;
+
+      string task_id;
+
+      string session_id;
+
+      string manager_boot_id;
+
+      string lease_token;
+
+      uint64 control_epoch;
+
+      uint64 expected_state_revision;
+    };
+    struct CancelTask_Response {
+      boolean accepted;
+
+      string code;
+
+      string message;
+
+      string request_id;
+
+      uint8 task_status;
+
+      uint64 state_revision;
+    };
+  };
+};

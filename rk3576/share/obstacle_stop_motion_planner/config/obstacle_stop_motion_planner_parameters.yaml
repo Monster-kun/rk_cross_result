@@ -1,0 +1,21 @@
+obstacle_stop_motion_planner_parameters:
+  plan_range: {
+    type: double,
+    default_value: 8.0,
+    description: "plan range"
+  }
+  sample_resolution: {
+    type: double,
+    default_value: 1.0,
+    description: "sample resolution"
+  }
+  maximum_acceleration: {
+    type: double,
+    default_value: 2.0,
+    description: "max acceleration"
+  }
+  maximum_velocity: {
+    type: double,
+    default_value: 1.0,
+    description: "max velocity"
+  }

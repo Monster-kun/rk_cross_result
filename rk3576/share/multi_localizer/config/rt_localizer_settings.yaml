@@ -1,0 +1,5 @@
+/rt_localizer_node:
+  ros__parameters:
+    relocation_map_name: "sim_street" #
+    relocation_method: 2 # 0=Scan Context, 1=BTC, 2=BBS3D
+    registration_type: "FASTVGICP" #" ICP, GICP, GICPOMP,FASTGICP, FASTVGICP, FASTCUDAGICP, NDT, NDTOMP"

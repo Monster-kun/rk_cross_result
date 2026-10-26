@@ -1,0 +1,4 @@
+localizer::LogWrapperNode;lib/libmulti_localizer_log_wrapper.so
+localizer::ScanConvertNode;lib/libmulti_localizer_scan_convert.so
+localizer::RTLocalizerNode;lib/libmulti_localizer_rt.so
+localizer::MSFLocalizerNode;lib/libmulti_localizer_msf.so

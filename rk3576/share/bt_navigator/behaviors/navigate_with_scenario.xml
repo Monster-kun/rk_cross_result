@@ -1,0 +1,44 @@
+<!--
+  This Behavior Tree follows a dynamic pose to a certain distance
+-->
+
+<root BTCPP_format="4">
+  <BehaviorTree ID="MainTree">
+    <RecoveryControl number_of_retries="5">
+      <PipelineSequence name="NavigateWithRecovery">
+        <RateController hz="2">
+          <Fallback>
+            <ReactiveSequence>
+              <Inverter>
+                <UpdateGlobalGoals distance="5.0" output_goal="{goal}" />
+              </Inverter>
+              <IsPathValid check_duration="5.0" check_distance="8.0"/>
+            </ReactiveSequence>
+            <ComputePathToPose goal="{goal}" path="{path}" global_planner_id="Lanelet2Planner"/>
+          </Fallback>
+        </RateController>
+        <ReactiveNavigationSequence name="MonitorAndFollowPath">
+          <PathAheadChecker path="{path}">
+            <SequenceWithMemory name="TurnAroundSequence">
+              <CancelFollowPath name="CancelFollowPath"/>
+              <SwitchController controller_id="spinning_controller"/>
+              <FindTurnAngleByPath input_path="{path}" output_goal="{turn_goal}"/>
+              <FollowPoint goal="{turn_goal}" local_planner_id="SpinningPlanner" plan_once="false" progress_checking_mode="angle"/>
+            </SequenceWithMemory>
+          </PathAheadChecker>
+          <Sequence name="LocalPlanning">
+            <SwitchController controller_id="simple_controller"/>
+            <FollowPath path="{path}" local_planner_id="OTLPlanner" plan_once="false" progress_checking_mode="distance" />
+            <SwitchController controller_id="halt_controller"/>
+          </Sequence>
+        </ReactiveNavigationSequence>
+      </PipelineSequence>
+      <RoundRobin>
+        <Sequence name="StraightLineMovement">
+          <SwitchController controller_id="pure_pursuit_controller"/>
+          <FollowPath path="{path}" local_planner_id="StraightLinePlanner" plan_once="true" progress_checking_mode="distance" />
+        </Sequence>
+      </RoundRobin>
+    </RecoveryControl>
+  </BehaviorTree>
+</root>

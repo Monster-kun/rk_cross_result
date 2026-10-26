@@ -1,0 +1,46 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from planning_msgs/msg/MincoTraj.msg
+// generated code does not contain a copyright notice
+
+#include "builtin_interfaces/msg/Time.idl"
+#include "geometry_msgs/msg/Point.idl"
+#include "geometry_msgs/msg/Vector3.idl"
+#include "planning_msgs/msg/Waypoint.idl"
+
+module planning_msgs {
+  module msg {
+    struct MincoTraj {
+      builtin_interfaces::msg::Time start_time;
+
+      double end_time;
+
+      @verbatim (language="comment", text=
+        "if true, use the normal trajectory")
+      boolean use_init;
+
+      @verbatim (language="comment", text=
+        "target angle")
+      double yaw;
+
+      @verbatim (language="comment", text=
+        "minco trajectory")
+      geometry_msgs::msg::Vector3 head_x;
+
+      geometry_msgs::msg::Vector3 head_y;
+
+      geometry_msgs::msg::Vector3 tail_x;
+
+      geometry_msgs::msg::Vector3 tail_y;
+
+      sequence<double> t_pts;
+
+      sequence<geometry_msgs::msg::Point> pos_pts;
+
+      sequence<double> yaw_pts;
+
+      @verbatim (language="comment", text=
+        "normal trajectory")
+      sequence<planning_msgs::msg::Waypoint> waypoints;
+    };
+  };
+};

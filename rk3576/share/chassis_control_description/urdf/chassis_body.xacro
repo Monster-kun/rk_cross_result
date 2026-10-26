@@ -1,0 +1,912 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="swerve" params="parent prefix *origin">
+  <link
+    name="chassis_link">
+    <inertial>
+      <origin
+        xyz="-0.413802808684981 0.189875287089822 -0.0150324669433118"
+        rpy="0 0 0" />
+      <mass
+        value="5.18964330275351" />
+      <inertia
+        ixx="0.135809276952922"
+        ixy="3.58856262952771E-07"
+        ixz="-1.5718288993075E-06"
+        iyy="0.149190315587751"
+        iyz="4.99002017336451E-07"
+        izz="0.280049748707211" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/chassis_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.811764705882353 0.494117647058824 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/chassis_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+    <joint
+      name="box_joint"
+      type="fixed">
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <parent link="${parent}" />
+      <child
+        link="base_chassis_link" />
+      <dynamics
+        friction="0.1" />
+    </joint>
+
+  <link
+    name="base_chassis_link">
+    <inertial>
+      <origin
+        xyz="0.00600000000000012 0.000501946756676586 0.00699999999999998"
+        rpy="0 0 0" />
+      <mass
+        value="0.000785398163397449" />
+      <inertia
+        ixx="1.14537232162128E-08"
+        ixy="0"
+        ixz="-3.79439225013451E-41"
+        iyy="1.14537232162128E-08"
+        iyz="3.58732406867153E-41"
+        izz="9.81747704246811E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/base_chassis_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/base_chassis_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_chassis_joint"
+    type="fixed">
+    <origin
+      xyz="-0.4095 0.189997864376266 0.0852099999999991"
+      rpy="0 0 -3.14159265358979" />
+    <parent
+      link="base_chassis_link" />
+    <child
+      link="chassis_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="right_back_pivot_link">
+    <inertial>
+      <origin
+        xyz="1.608326933078E-06 2.24030028528333E-06 0.0291181692368471"
+        rpy="0 0 0" />
+      <mass
+        value="0.637720972159333" />
+      <inertia
+        ixx="0.00261143731893535"
+        ixy="-2.64170324515533E-05"
+        ixz="-2.62653866593802E-05"
+        iyy="0.00406847869575332"
+        iyz="-4.21929796140602E-07"
+        izz="0.00238997510073315" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/right_back_pivot_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/right_back_pivot_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_back_pivot_joint"
+    type="revolute">
+    <origin
+      xyz="-0.1255 0.439997864376266 -0.145290000000001"
+      rpy="3.14159265358979 0 -1.5707963267949" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="right_back_pivot_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit 
+      effort="5" velocity="6.28" lower="-1.5707963267948966" upper="1.5707963267948966"/>
+  </joint>
+  <link
+    name="right_back_drive_link">
+    <inertial>
+      <origin
+        xyz="-2.79776202205539E-14 1.88737914186277E-14 0.0349999994453136"
+        rpy="0 0 0" />
+      <mass
+        value="2.20784805045615" />
+      <inertia
+        ixx="0.00600815070486222"
+        ixy="6.01124665379697E-08"
+        ixz="1.55211672507594E-15"
+        iyy="0.00600817697867117"
+        iyz="3.09169657893973E-15"
+        izz="0.00988038934061407" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/right_back_drive_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.43921568627451 0.43921568627451 0.43921568627451 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/right_back_drive_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_back_drive_joint"
+    type="continuous">
+    <origin
+      xyz="-0.034994246100821 -0.000634617865430842 0.163000000000007"
+      rpy="1.5707963267949 0 1.58892925948533" />
+    <parent
+      link="right_back_pivot_link" />
+    <child
+      link="right_back_drive_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="left_back_pivot_link">
+    <inertial>
+      <origin
+        xyz="1.6486730753662E-06 2.21077032924732E-06 0.0291181692303605"
+        rpy="0 0 0" />
+      <mass
+        value="0.637720972171481" />
+      <inertia
+        ixx="0.00261095851981491"
+        ixy="1.49798243555141E-08"
+        ixz="-2.62687191166579E-05"
+        iyy="0.00406895749488488"
+        iyz="5.43819308985712E-08"
+        izz="0.00238997510074289" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/left_back_pivot_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/left_back_pivot_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_back_pivot_joint"
+    type="revolute">
+    <origin
+      xyz="-0.1255 -0.0600021356237343 -0.145290000000001"
+      rpy="3.14159265358979 0 -1.5707963267949" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="left_back_pivot_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit 
+      effort="5" velocity="6.28" lower="-1.5707963267948966" upper="1.5707963267948966"/>
+  </joint>
+  <link
+    name="left_back_drive_link">
+    <inertial>
+      <origin
+        xyz="3.35287353436797E-14 -3.85802501057242E-15 0.064962005652324"
+        rpy="0 0 0" />
+      <mass
+        value="2.20784805045614" />
+      <inertia
+        ixx="0.00600810461263362"
+        ixy="1.66732381112781E-08"
+        ixz="2.55311413834772E-16"
+        iyy="0.00600822307089667"
+        iyz="-3.44216227702866E-15"
+        izz="0.00988038934061096" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/left_back_drive_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.43921568627451 0.43921568627451 0.43921568627451 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/left_back_drive_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_back_drive_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0649620062070096 0 0.16300000000001"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="left_back_pivot_link" />
+    <child
+      link="left_back_drive_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="right_forward_pivot_link">
+    <inertial>
+      <origin
+        xyz="-1.64867306828853E-06 -2.21077031359318E-06 0.0291181692304064"
+        rpy="0 0 0" />
+      <mass
+        value="0.637720972170983" />
+      <inertia
+        ixx="0.00261095851981293"
+        ixy="1.49798244067642E-08"
+        ixz="2.6268719116923E-05"
+        iyy="0.00406895749488292"
+        iyz="-5.43819302595719E-08"
+        izz="0.00238997510074271" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/right_forward_pivot_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/right_forward_pivot_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_forward_pivot_joint"
+    type="revolute">
+    <origin
+      xyz="-0.7055 0.439997864376266 -0.145290000000001"
+      rpy="3.14159265358979 0 1.5707963267949" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="right_forward_pivot_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit 
+      effort="5" velocity="6.28" lower="-1.5707963267948966" upper="1.5707963267948966"/>
+  </joint>
+  <link
+    name="right_forward_drive_link">
+    <inertial>
+      <origin
+        xyz="-3.09752223870419E-14 1.36834987785051E-14 0.0649620056523239"
+        rpy="0 0 0" />
+      <mass
+        value="2.20784805045604" />
+      <inertia
+        ixx="0.0060081253658675"
+        ixy="4.80176241599851E-08"
+        ixz="7.93686829080917E-16"
+        iyy="0.00600820231766179"
+        iyz="3.36409027495424E-15"
+        izz="0.00988038934060998" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/right_forward_drive_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.43921568627451 0.43921568627451 0.43921568627451 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/right_forward_drive_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_forward_drive_joint"
+    type="continuous">
+    <origin
+      xyz="0.0649620062070097 0 0.163000000000009"
+      rpy="-1.57079632679489 0 1.5707963267949" />
+    <parent
+      link="right_forward_pivot_link" />
+    <child
+      link="right_forward_drive_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="left_forward_pivot_link">
+    <inertial>
+      <origin
+        xyz="-1.72775270085301E-06 -2.14953984778443E-06 0.0291181692438365"
+        rpy="0 0 0" />
+      <mass
+        value="0.637720972196774" />
+      <inertia
+        ixx="0.0026128763440432"
+        ixy="5.28441854184188E-05"
+        ixz="2.62494747478977E-05"
+        iyy="0.00406703967064947"
+        iyz="-1.00679521842732E-06"
+        izz="0.00238997510073364" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/left_forward_pivot_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/left_forward_pivot_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_forward_pivot_joint"
+    type="revolute">
+    <origin
+      xyz="-0.7055 -0.0600021356237342 -0.145290000000001"
+      rpy="3.14159265358979 0 1.5707963267949" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="left_forward_pivot_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit 
+      effort="5" velocity="6.28" lower="-1.5707963267948966" upper="1.5707963267948966"/>
+  </joint>
+  <link
+    name="left_forward_drive_link">
+    <inertial>
+      <origin
+        xyz="-3.15303338993544E-14 -1.1740608485411E-14 0.064962005652324"
+        rpy="0 0 0" />
+      <mass
+        value="2.20784805045614" />
+      <inertia
+        ixx="0.00600811410793837"
+        ixy="-3.62302813524894E-08"
+        ixz="-1.73040021981402E-15"
+        iyy="0.00600821357559346"
+        iyz="2.96245273434683E-15"
+        izz="0.00988038934061251" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/left_forward_drive_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.43921568627451 0.43921568627451 0.43921568627451 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/left_forward_drive_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_forward_drive_joint"
+    type="continuous">
+    <origin
+      xyz="0.0649192914516319 -0.00235538698681026 0.163000000000009"
+      rpy="-1.5707963267949 0 1.53453046141404" />
+    <parent
+      link="left_forward_pivot_link" />
+    <child
+      link="left_forward_drive_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="camera_back_right_link">
+    <inertial>
+      <origin
+        xyz="-0.0467038267192741 -4.31620506673447E-05 -0.000132993148880801"
+        rpy="0 0 0" />
+      <mass
+        value="0.0655349969834522" />
+      <inertia
+        ixx="8.44261213656867E-06"
+        ixy="-5.67768943015385E-08"
+        ixz="-1.70528230662595E-07"
+        iyy="1.55627604644442E-05"
+        iyz="2.0786231431285E-08"
+        izz="1.56177782736979E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/camera_back_right_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/camera_back_right_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera_back_right_joint"
+    type="fixed">
+    <origin
+      xyz="0 0.379999999999998 0"
+      rpy="0 0 0" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="camera_back_right_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="camera_forward_right_link">
+    <inertial>
+      <origin
+        xyz="-0.0467039300673939 4.31714021175422E-05 -0.000132987721305856"
+        rpy="0 0 0" />
+      <mass
+        value="0.0655351302830878" />
+      <inertia
+        ixx="8.44263668021505E-06"
+        ixy="5.67633677346047E-08"
+        ixz="-1.7053696554836E-07"
+        iyy="1.55628179818978E-05"
+        iyz="-2.07882969216257E-08"
+        izz="1.56178418046123E-05" />
+    </inertial>
+    <!-- <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/camera_forward_right_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/camera_forward_right_link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint
+    name="camera_forward_right_joint"
+    type="fixed">
+    <origin
+      xyz="-0.831000000000004 0.380000000000003 0"
+      rpy="0 0 3.14159265358979" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="camera_forward_right_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="camera_back_left_link">
+    <inertial>
+      <origin
+        xyz="-0.0467038267193558 -4.31620506670949E-05 -0.00013299314890397"
+        rpy="0 0 0" />
+      <mass
+        value="0.0655349969835964" />
+      <inertia
+        ixx="8.44261213658506E-06"
+        ixy="-5.67768943014819E-08"
+        ixz="-1.70528230685794E-07"
+        iyy="1.5562760464491E-05"
+        iyz="2.07862314316403E-08"
+        izz="1.56177782737272E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/camera_back_left_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/camera_back_left_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera_back_left_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="camera_back_left_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="camera_forward_left_link">
+    <inertial>
+      <origin
+        xyz="-0.0467039300673939 4.31714021174867E-05 -0.000132987721305822"
+        rpy="0 0 0" />
+      <mass
+        value="0.0655351302830876" />
+      <inertia
+        ixx="8.44263668021501E-06"
+        ixy="5.67633677345577E-08"
+        ixz="-1.70536965548348E-07"
+        iyy="1.55628179818978E-05"
+        iyz="-2.07882969216164E-08"
+        izz="1.56178418046123E-05" />
+    </inertial>
+    <!-- <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/camera_forward_left_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/camera_forward_left_link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint
+    name="camera_forward_left_joint"
+    type="fixed">
+    <origin
+      xyz="-0.831000000000004 0 0"
+      rpy="0 0 3.14159265358979" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="camera_forward_left_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lidar_forward_link">
+    <inertial>
+      <origin
+        xyz="-0.0391500563595325 0.000467643812541225 0.00740767159533211"
+        rpy="0 0 0" />
+      <mass
+        value="0.872412702033203" />
+      <inertia
+        ixx="0.00105919707238296"
+        ixy="-3.71752569958332E-06"
+        ixz="-5.69699684263139E-07"
+        iyy="0.000856975241742878"
+        iyz="-6.5558948058893E-07"
+        izz="0.00145939250169712" />
+    </inertial>
+    <!-- <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/replace.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual> -->
+  </link>
+  <joint
+    name="lidar_foward_joint"
+    type="fixed">
+    <origin
+      xyz="-0.815500000000005 0.18986249547593 0.000550000000072173"
+      rpy="0 0 3.14159265358802" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="lidar_forward_link" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="lidar_back_link">
+    <inertial>
+      <origin
+        xyz="-0.052006823349992 -0.000567737388357167 0.00899296741670343"
+        rpy="0 0 0" />
+      <mass
+        value="0.718621023669189" />
+      <inertia
+        ixx="0.000788779664338853"
+        ixy="3.71747687905425E-06"
+        ixz="-5.69744620220457E-07"
+        iyy="0.000827171072285211"
+        iyz="6.57061146680772E-07"
+        izz="0.00119757765369848" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/lidar_back_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/lidar_back_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_back_joint"
+    type="fixed">
+    <origin
+      xyz="-0.0154999999999963 0.18986249547593 0.000550000000072173"
+      rpy="0 0 0" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="lidar_back_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="charge_link">
+    <inertial>
+      <origin
+        xyz="-0.433037199158563 0.00999998305039543 -0.195202524441882"
+        rpy="0 0 0" />
+      <mass
+        value="0.334809422553016" />
+      <inertia
+        ixx="0.00136689204536893"
+        ixy="2.69603356251985E-12"
+        ixz="5.27075331747554E-11"
+        iyy="0.00020241720687585"
+        iyz="-5.9273883961893E-12"
+        izz="0.00118042461089628" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/charge_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://chassis_control_description/meshes/charge_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="charge_joint"
+    type="fixed">
+    <origin
+      xyz="-0.4095 0.189997864376266 0.0852099999999991"
+      rpy="0 0 3.14159265358979" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="charge_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  </xacro:macro>
+</robot>
+

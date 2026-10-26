@@ -1,0 +1,3 @@
+
+bool slow_down
+float32 slow_down_ratio

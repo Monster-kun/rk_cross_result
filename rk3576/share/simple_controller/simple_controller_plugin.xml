@@ -1,0 +1,7 @@
+<library path="simple_controller">
+	<class name="simple_controller/SimpleController" type="simple_controller::SimpleController" base_class_type="controller_interface::ControllerInterface">
+	<description>
+		simple control
+	</description>
+	</class>
+</library>

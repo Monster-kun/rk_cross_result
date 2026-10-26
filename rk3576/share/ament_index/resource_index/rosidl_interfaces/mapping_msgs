@@ -1,0 +1,5 @@
+msg/HADMapBin.idl
+msg/HADMapSegment.idl
+msg/MapPrimitive.idl
+msg/MapProjectorInfo.idl
+msg/MapProjectorInfo.msg

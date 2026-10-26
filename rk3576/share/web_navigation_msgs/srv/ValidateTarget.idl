@@ -1,0 +1,39 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from web_navigation_msgs/srv/ValidateTarget.srv
+// generated code does not contain a copyright notice
+
+
+module web_navigation_msgs {
+  module srv {
+    struct ValidateTarget_Request {
+      string map_version;
+
+      string frame_id;
+
+      double x;
+
+      double y;
+
+      string selected_layer_id;
+
+      boolean suggest_nearest;
+    };
+    struct ValidateTarget_Response {
+      boolean valid;
+
+      string code;
+
+      string message;
+
+      string map_version;
+
+      sequence<string> lanelet_ids;
+
+      double x;
+
+      double y;
+
+      string lanelet_id;
+    };
+  };
+};

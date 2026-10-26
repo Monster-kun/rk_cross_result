@@ -1,0 +1,14 @@
+source;share/otl_planner/hook/cmake_prefix_path.ps1
+source;share/otl_planner/hook/cmake_prefix_path.dsv
+source;share/otl_planner/hook/cmake_prefix_path.sh
+source;share/otl_planner/hook/ld_library_path_lib.ps1
+source;share/otl_planner/hook/ld_library_path_lib.dsv
+source;share/otl_planner/hook/ld_library_path_lib.sh
+source;share/otl_planner/hook/pythonpath.ps1
+source;share/otl_planner/hook/pythonpath.dsv
+source;share/otl_planner/hook/pythonpath.sh
+source;share/otl_planner/local_setup.bash
+source;share/otl_planner/local_setup.dsv
+source;share/otl_planner/local_setup.ps1
+source;share/otl_planner/local_setup.sh
+source;share/otl_planner/local_setup.zsh

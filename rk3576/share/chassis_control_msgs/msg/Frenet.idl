@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from chassis_control_msgs/msg/Frenet.msg
+// generated code does not contain a copyright notice
+
+
+module chassis_control_msgs {
+  module msg {
+    struct Frenet {
+      float s;
+
+      float ds;
+
+      float dds;
+
+      float l;
+
+      float dl;
+
+      float ddl;
+    };
+  };
+};

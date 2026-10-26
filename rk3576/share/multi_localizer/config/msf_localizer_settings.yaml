@@ -1,0 +1,8 @@
+/msf_localizer_node:
+  ros__parameters:
+    use_debug_mode: false
+    relocation_map_name: "sim_street" #
+    relocation_method: 2 # 0=Scan Context, 1=BTC, 2=BBS3D
+    use_odom: false
+    wheel_velocity_ratio: 0.1 # sim 0.1, real 1
+    registration_type: "FASTVGICP" #" ICP, GICP, GICPOMP,FASTGICP, FASTVGICP, FASTCUDAGICP, NDT, NDTOMP"
